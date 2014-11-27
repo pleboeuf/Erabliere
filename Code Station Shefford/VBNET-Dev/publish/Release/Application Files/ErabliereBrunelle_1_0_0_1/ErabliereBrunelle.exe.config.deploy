@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="ErabliereBrunelle.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <system.diagnostics>
+        <sources>
+            <!-- Cette section définit la configuration de l'enregistrement dans le fichier journal de My.Application.Log -->
+            <source name="DefaultSource" switchName="DefaultSwitch">
+                <listeners>
+                    <add name="FileLog"/>
+                    <!-- Supprimez les marques de commentaire dans la section suivante pour écrire dans le journal des événements de l'application -->
+                    <!--<add name="EventLog"/>-->
+                </listeners>
+            </source>
+        </sources>
+        <switches>
+            <add name="DefaultSwitch" value="Information" />
+        </switches>
+        <sharedListeners>
+            <add name="FileLog"
+                 type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                 initializeData="FileLogWriter"/>
+            <!-- Supprimez les marques de commentaire dans la section suivante et remplacez APPLICATION_NAME par le nom de votre application à écrire dans le journal des événements de l'application -->
+            <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
+        </sharedListeners>
+    </system.diagnostics>
+    <userSettings>
+        <ErabliereBrunelle.My.MySettings>
+            <setting name="DelaisMaxConnection" serializeAs="String">
+                <value>3000</value>
+            </setting>
+            <setting name="IPpart1" serializeAs="String">
+                <value>192</value>
+            </setting>
+            <setting name="IPpart2" serializeAs="String">
+                <value>168</value>
+            </setting>
+            <setting name="IPpart3" serializeAs="String">
+                <value>1</value>
+            </setting>
+            <setting name="IPpart4" serializeAs="String">
+                <value>99</value>
+            </setting>
+            <setting name="CheminFichierLog" serializeAs="String">
+                <value>C:\Documents and Settings\Erabliere\My Documents\Log Station Shefford\</value>
+            </setting>
+            <setting name="NoColOuSauverLeNoLigneCourrant" serializeAs="String">
+                <value>10</value>
+            </setting>
+            <setting name="PrefixFichierLog" serializeAs="String">
+                <value>Station Shefford </value>
+            </setting>
+            <setting name="NomDuRaportVide" serializeAs="String">
+                <value>Rapport vide.xltx</value>
+            </setting>
+            <setting name="DelaisWatchDog" serializeAs="String">
+                <value>3000</value>
+            </setting>
+        </ErabliereBrunelle.My.MySettings>
+    </userSettings>
+</configuration>

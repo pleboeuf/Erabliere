@@ -1,0 +1,133 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww26120\viewh20400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs36 \cf0 Bonjour \'e0 tous,\
+\
+Merci pour vos commentaires. Je r\'e9alise que tout le monde n\'92est pas parfaitement au fait de la situation actuelle du syst\'e8me. J\'92aurais d\'fb inclure plus d\'92information dans mon document.\
+\
+Comme vous le savez, pendant la saison des sucres, les coul\'e9es se font de fa\'e7on al\'e9atoire et d\'e9pendent essentiellement de la temp\'e9rature. L\'92eau s\'92accumule dans les r\'e9servoirs qui ont cependant une capacit\'e9 limit\'e9. Il est donc n\'e9cessaire de bouillir l\'92eau d\'92\'e9rable et de produire le sirop au moment appropri\'e9 pour \'e9viter tout d\'e9bordement des r\'e9servoirs et donc perte de la ressource. Il y a plusieurs r\'e9servoirs qui sont situ\'e9s sur deux sites diff\'e9rents qui doivent \'eatre surveill\'e9 visuellement actuellement\
+\
+
+\b Historique
+\b0 \
+\'c0 ma connaissance, c\'92est Carl qui a compris le premier l\'92avantage qu\'92il y aurais a surveiller en temps r\'e9el l\'92\'e9tat des pompes durant la coul\'e9e pour d\'e9terminer le taux de coul\'e9e et ainsi planifier le bousillage de l\'92eau d\'92\'e9rable. Il y a plusieurs ann\'e9es, en 2009 ou 2010 peut-\'eatre (Carl quand as-tu commenc\'e9 \'e7a?) Carl a r\'e9cup\'e9r\'e9 un automate mis au rancard et l\'92a install\'e9 au \'ab\'a0BoilerHouse\'a0\'bb. Des indicateurs lumineux, 4 ou 5, donnais un ordre de grandeur du d\'e9bit de coul\'e9e pour le site Shefford seulement. C\'92\'e9tait un d\'e9but. Il a ensuite ajout\'e9 un autre automate pour le site Laporte et m\'92a impliqu\'e9 avec lui pour \'e9crire le logiciel faisant l\'92acquisition des donn\'e9es des pompes ainsi que l\'92affichage de l\'92\'e9tat du syst\'e8me.\
+\
+Dec 2011 - D\'e9but d\'92\'e9criture de la premi\'e8re version du logiciel.\
+Printemps 2012 - Premi\'e8re acquisition de donn\'e9es. Les deux site sont ind\'e9pendant. Donn\'e9es sauvegard\'e9s sur Dropbox et affichage du PC Laporte via LogMeIn.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 Printemps 2013 - Seconde acquisition de donn\'e9es. Les deux site sont ind\'e9pendant. Donn\'e9es sauvegard\'e9 sur Dropbox et affichage du PC Laporte via LogMeIn au bureau d\'92Alain.\
+F\'e9v. 2014 - VPN (Tinc)\
+Mars avril 2014 - Troisi\'e8me acquisition de donn\'e9es. Acquisition et affichage combin\'e9 des deux sites. Donn\'e9es sauvegard\'e9 sur Dropbox et affichage du PC Shefford via LogMeIn au bureau d\'92Alain.\
+\
+Le logiciel est \'e9crit en VB.net 2010 et op\'e8re grosso modo de la fa\'e7on suivante: \
+Les donn\'e9es sont re\'e7u des automates 3 \'e0 5 fois par secondes par une interruption. L\'92ordinateur v\'e9rifie alors s\'92il y a eu un changement d\'92\'e9tat. Si c\'92est le cas, Il v\'e9rifie si la pompe d\'e9marre, si c\'92est le cas, il note le temps de d\'e9marrage (T1), si la pompe arr\'eate il note le temps d\'92arr\'eat (T2 et T0 du cycle suivant) et calcule le temps d\'92op\'e9ration de la pompe, le temps total d\'92un cycle de pompage et le \'ab\'a0duty cycle\'a0\'bb de la pompe et \'e9crit ces information dans le fichier Excel.\
+\
+Gr\'e2ce au VPN, au printemps dernier on avait la vue d\'92ensemble de l\'92op\'e9ration de l\'92\'e9rabli\'e8re, mais le syst\'e8me n\'92a jamais \'e9t\'e9 enti\'e8rement fiable. Alain, consulte r\'e9guli\'e8rement le fichier Excel pour voir les graphiques de la coul\'e9e en cours ce qui cause occasionnellement un blocage lorsque que l\'92ordinateur essaye d\'92acc\'e9d\'e9 au m\'eame fichier \'e0 ce moment-l\'e0. Le fichier Excel peut \'eatre corrompu. \
+\
+La communication entre l\'92ordinateur et l\'92un ou l\'92autre des PLC (ethernet avec c\'e2ble protocole modbus), est perdu occasionnellement m\'eame pour l\'92automate local. La raisonn est inconnue. Le logiciel la r\'e9tablie normalement automatiquement mais la mesure du temps est affect\'e9 et les donn\'e9es ne sont pas aussi pr\'e9cise. \
+\
+L\'92hiver dernier, la communication entre le site Shefford et le site Laporte \'e9tait fr\'e9quemment interrompu pour des p\'e9riodes allant d\'92une fraction de seconde \'e0 plusieurs secondes. Il ne semble pas que ce soit d\'fb au logiciel de VPN mais probablement du r\'e9seau. J\'92ai pass\'e9 beaucoup de temps en ligne \'e0 resetter manuellement les communications entre les sites.\
+\
+Donc le syst\'e8me actuel n\'92est pas particuli\'e8rement robuste. Je crois que la premi\'e8re chose \'e0 faire est de modifier la fa\'e7on dont le r\'e9seau est mont\'e9 afin d\'92assurer une communication fiable. \'c7a devrait rendre le syst\'e8me un peu plus fiable. \
+\
+
+\b Probl\'e8mes avec le syst\'e8me actuel
+\b0 \
+1- Faible fiabilit\'e9 du r\'e9seau.\
+2- Probl\'e8mes de communication de cause inconnue avec les PLC utilisant le protocole Modbus.\
+3- Impr\'e9cision dans la mesure du temps des \'e9v\'e8nements.\
+4- Absence de capteur de niveau des r\'e9servoirs.\
+5- Blocage ou corruption de fichier Excel en cas d\'92acc\'e8s simultan\'e9.\
+5- Difficult\'e9 \'e0 interfacer les capteurs de niveau sans contact bas\'e9 sur Arduino que je vais tester cet ann\'e9e. Il faudrait ajouter une carte 4-20ma sur chaque PLC et construire un circuit plus complexe dans le capteur pour l\'92adapter \'e0 cet interface.\
+6- L\'92\'e9quipement vieillit. Les PLC en seront \'e0 une cinqui\'e8me ann\'e9e \'e0 l\'92\'e9rabli\'e8re apr\'e8s une pr\'e9c\'e9dente vie de plusieurs ann\'e9es en usine. Qu\'92est-ce que l\'92on fait en cas de panne? Syst\'e8me op\'e9rant sous Window XP. Driver d\'e9suet. La librairie de symboles n\'92est pas dans le domaine publique et incompatible avec les version r\'e9cente de Window. \
+7- Personnel de support (NOUS) \'e9loign\'e9 du site. \
+\
+
+\b Questions
+\b0 \
+Malgr\'e9 ces probl\'e8mes, je crois que l\'92on a obtenus des r\'e9sultats int\'e9ressants jusqu\'92ici et que l\'92on a d\'e9montr\'e9 l\'92int\'e9r\'eat d\'92un tel syst\'e8me d\'92acquisition des donn\'e9es pour l\'92\'e9rabli\'e8re. L\'92ann\'e9e derni\'e8re d\'92apr\'e8s les commentaires que j\'92en ai eu, \'e7a semblais \'eatre le cas. Mais je ne suis pas bien plac\'e9 pour r\'e9pondre \'e0 plusieurs questions, je ne fais pas les sucres. Il faudrait d\'92abord r\'e9pondre \'e0 ces questions.\
+\
+Alain, est-ce que le syst\'e8me est vraiment utile?\
+Est-ce que l\'92effort et le temps investi en vaut la peine?\
+Si oui, jusqu\'92\'e0 quel point? \
+Quel sont les donn\'e9es les plus importante?\
+Veux-t-on le d\'e9velopper davantage avec l\'92ajout de fonction additionnelles tel jauge de niveau pour les r\'e9servoirs ou autre?\
+Est-ce \'e0 ce point utile qu\'92il vaudrait mieux aller vers un syst\'e8me de type industriel avec le support d\'92un fournisseur? \
+Voulons-nous plut\'f4t continuer \'e0 d\'e9velopper un syst\'e8me \'e0 l\'92interne et si oui pour quel genre de budget?\
+\
+La r\'e9flexion que j\'92ai faite tient compte des probl\'e8mes observ\'e9s avec le syst\'e8me actuel. J\'92ai \'e9galement suppos\'e9 certaine r\'e9ponses aux question pr\'e9c\'e9dente et \'e9tabli des objectifs pour une mise \'e0 jour de syst\'e8me.\
+\
+
+\b Objectifs pour le prochain syst\'e8me\
+
+\b0 Fiabilit\'e9 des donn\'e9es. \
+Facilit\'e9 de r\'e9paration sur le terrain en rempla\'e7ant simplement des modules standard.\
+D\'e9gradation progressive en cas de panne. Si un contr\'f4leur tombe en panne, on ne perd que les donn\'e9es y \'e9tant associ\'e9.\
+Faible expertise technique requise sur le terrain\
+Faible co\'fbt.\
+Support logiciel \'e0 distance.\
+Stockage dans une base de donn\'e9es\
+Utilisation des technologies web pour l\'92affichage.\
+Utilisation de logiciel open-source existant autant que possible.\
+Code et documentation sur Github.\
+\
+
+\b Jauge de niveau sans contact(JN)
+\b0 \
+La jauge de niveau sans contact que j\'92ai con\'e7u et test\'e9 l\'92ann\'e9e derni\'e8re est tr\'e8s simple, Un capteur \'e0 ultrason type HC-SR04, un capteur de temp\'e9rature DS18B20 et un Arduino tous tr\'e8s peu dispendieux. Le tout mont\'e9 au bout d\'92un tuyau de 2\'92\'92 en ABS ou plastique transparent tel qu\'92utilis\'e9 \'e0 l\'92\'e9rabli\'e8re. Le plus compliqu\'e9 est alors de transmettre la mesure au PLC dans la configuration actuelle du syst\'e8me. Les PLC dont nous disposons ne sont \'e9quip\'e9s que d\'92entr\'e9s/sortie digitales. Les possibilit\'e9s sont: interface de type industriel tel boucle 4-20ma, interface s\'e9rie RS-485 pour pouvoir mettre plusieurs jauges sur un m\'eame bus, ethernet c\'e2bl\'e9, ethernet wifi. La solution wifi est la plus simple et probablement la moins ch\'e8re \'e0 impl\'e9menter en pratique. Un Spark Core inclus un processeur compatible Arduino et un module wifi. En prime, il permet la programmation \'e0 distance et les donn\'e9es dans le nuage accessible par internet. Si on a plusieurs de ces jauges, on a d\'e9j\'e0 un syst\'e8me distribu\'e9 qui utilise les protocoles moderne et les technologies web. Les donn\'e9es de niveau sont utile mais moins critique.\
+\
+
+\b Contr\'f4leur intelligent (CI)\
+
+\b0 On se rend alors compte alors que deux PLC ne surveillent que l\'92\'e9tat de marche de trois pompes et de l\'92osmose donc quatre machines au total. Plut\'f4t que 2 PLC, on peux utiliser la m\'eame approche que pour les jauges de niveau. Ces donn\'e9es sont cependant les plus critiques. Ce contr\'f4leur ne s\'92occupe que d\'92un seul appareil et marque les \'e9v\'e8nements d\'e9part ou arr\'eat avec la date et l\'92heure \'e0 quelques milli-secondes pr\'e8s ind\'e9pendamment de ce qui se passe sur le r\'e9seau. Il conserve localement cet information tant qu\'92elle n\'92a pas \'e9t\'e9 envoy\'e9 avec confirmation \'e0 l\'92ordinateur.\
+\
+
+\b Arduino vs Spark Core or Pinoccio\
+
+\b0 Les Arduinos sont bien \'e9tablit depuis plusieurs ann\'e9es et existe dans un grand nombre variation et sont peu dispendieux. Les Spark Core et Pinoccio sont des nouveau venus et doivent aussi faire leur preuve sur le terrain. Cependant ces processeurs pr\'e9sentent un \'e9norme avantage avec l\'92int\'e9gration pouss\'e9 de leur technologie respective de r\'e9seau et de la programmation \'e0 distance par internet. Tant qu\'92a devoir inclure un Arduino dans les jauges de niveau, je pr\'e9f\'e8re y inclure un Spark Core pour cette raison. Il serait \'e9videmment possible d\'92utiliser un Arduino et un \'ab\'a0shield\'a0\'bb ethernet et de faire les communications par internet c\'e2bl\'e9 de fa\'e7on peut-\'eatre plus fiable, mais ce serait aussi plus compliqu\'e9 et on perdrait l\'92avantage de la programmation \'e0 distance. De plus ces produits \'e9tant tr\'e8s peu ch\'e8re, je pr\'e9f\'e8re garder les programmes aussi simple que possible en utilisant un processeur pour chaque capteur. \'c7a augmente le fiabilit\'e9 globale du syst\'e8me et \'e7a simplifie la maintenance et les r\'e9parations.\
+\
+
+\b Raspberry Pi (RPi) ou autre\
+
+\b0 Il y a une grande vari\'e9t\'e9 de carte disponible sur le march\'e9. Par exemple Intel Galileo qui ex\'e9cute une version de Window et bien d\'92autre. Ce qui est important, c\'92est qu\'92il y ait une grande vari\'e9t\'e9 de logiciel open source disponible, qu\'92elle consomme relativement peu d\'92\'e9nergie (UPS cheap) et qu\'92elle soit peu dispendieuse (au moins deux cartes requise). \'c0 ce moment-ci je crois que le Raspberry Pi peut faire l\'92affaire mais ce n\'92est pas encore un choix fig\'e9 dans le b\'e9ton. Au prix qu\'92il coute, on peut faire le test et voir ce que \'e7a dit. Il sera encore possible de changer de plate-forme si \'e7a ne va pas. Environ 3 millions de RPI sont en utilisation dans le monde. Il y a une grosse communaut\'e9 derri\'e8re et une immense vari\'e9t\'e9 de logiciel disponible.\
+\
+
+\b Validation
+\b0 \
+Tout cela est bien beau en th\'e9orie mais doit \'e9videmment \'eatre valid\'e9 en pratique et dans l\'92environnement r\'e9el avant de mettre ce syst\'e8me en production. Cet ann\'e9e, une jauge de niveau int\'e9rieure et une jauge de niveau ext\'e9rieure devrait \'eatre test\'e9. Il faut aussi un RPi pour collecter et afficher les donn\'e9es et se faire une premi\'e8re id\'e9e si le RPi est appropri\'e9 pour la t\'e2che. Id\'e9alement si le temps le permet, il serait aussi int\'e9ressant de test\'e9 un contr\'f4leur intelligent. \
+\
+
+\b Transition
+\b0 \
+Si le concept est valid\'e9, la transition devrait se faire en parall\'e8le autant que possible. Les deux syst\'e8mes \'e9tant en op\'e9ration simultan\'e9ment.\
+\
+
+\b Logiciel\
+
+\b0 Voici une repr\'e9sentation sch\'e9matique du fonctionnement que j\'92envisage pour le logiciel. Le travail en temps r\'e9el est effectu\'e9 uniquement dans les contr\'f4leurs intelligents et les jauges de niveau. Le reste du logiciel serait construit \'e0 partir de modules open source ayant des fonctions sp\'e9cifique. \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 2.tiff \width12876 \height10883
+}¬}
+\fs36 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 Au premier niveau. on trouve un\'a0 \'ab\'a0MQTT Broker\'a0\'bb. Chaque CI et JN \'ab\'a0publie\'a0\'bb ses mesures sur le \'ab\'a0MQTT Broker\'a0\'bb. Celui-ci rend ces donn\'e9es disponible au logiciels qui ont \'e9tablit une \'ab\'a0souscription\'a0\'bb \'e0 un sujet sp\'e9cifique. Si un appareil n\'92a rien publi\'e9 depuis un certain d\'e9lais, les souscripteurs sont avis\'e9 automatiquement. J\'92ai commenc\'e9 \'e0 regard\'e9 \'e7a. Il y a une librairie MQTT pour Spark Core. Je commence \'e0 test\'e9 \'e7a.\
+\
+La base de donn\'e9es est ainsi rempli aussit\'f4t que des \'e9v\'e8nements se produisent. Il existe plusieurs logiciel libre de base de donn\'e9es. Faudra voir ce qui est le mieux appropri\'e9 pour cet application. Je n\'92ai pas beaucoup d\'92exp\'e9rience en base de donn\'e9es. Pour chaque pompe, il n\'92y a que trois donn\'e9es de base, T0: temps de d\'e9but de cycle, T1: temps de d\'e9marrage de la pompe et T2: temps d\'92arr\'eat de la pompe et fin du cycle. Tout est calcul\'e9 \'e0 partir de ces trois valeurs. Un module de calcul, \'e0 \'e9crire, fera ces calculs et compl\'e8tera la base de donn\'e9es.\
+\
+La base de donn\'e9es sera utilis\'e9 pour g\'e9n\'e9rer des rapports, des graphiques et une table de l\'92\'e9tat du syst\'e8me. Enfin ces trois derniers \'e9l\'e9ments serviront \'e0 g\'e9n\'e9rer une page web. Un serveur web tel que Apache ou nginx rendra la page disponible. Si n\'e9cessaire ce serveur pourrait r\'e9sider sur un autre ordinateur.\
+\
+
+\b Conclusion
+\b0 \
+Tout cela n\'92est qu\'92\'e0 l\'92\'e9tat d\'92\'e9bauche pr\'e9sentement. La toute premi\'e8re chose \'e0 faire est de r\'e9gler les probl\'e8mes de fiabilit\'e9 du r\'e9seau. C\'92est valable pour le syst\'e8me actuel ou pour tout syst\'e8me future.\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+\cf0 \
+}

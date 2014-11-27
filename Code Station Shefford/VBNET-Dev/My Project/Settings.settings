@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="DelaisMaxConnection" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="PLC_IP_Shefford" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="PLC_IP_Laporte" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.139</Value>
+    </Setting>
+    <Setting Name="CheminFichierLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Documents and Settings\Erabliere\My Documents\Dropbox\Log Station Shefford\</Value>
+    </Setting>
+    <Setting Name="NoColOuSauverLeNoLigneCourrant" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">11</Value>
+    </Setting>
+    <Setting Name="PrefixFichierLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NomDuRaportVide" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Rapport vide.xltx</Value>
+    </Setting>
+    <Setting Name="DelaisWatchDog" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="AdresseLogMeIn" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://secure.logmein.com/</Value>
+    </Setting>
+    <Setting Name="PortCamera1130" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8081</Value>
+    </Setting>
+    <Setting Name="PortCamera930" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8082</Value>
+    </Setting>
+    <Setting Name="DelaisCouleMax" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:02:00</Value>
+    </Setting>
+    <Setting Name="Camera_IP_Laporte" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.52</Value>
+    </Setting>
+    <Setting Name="NoDeCoulee" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

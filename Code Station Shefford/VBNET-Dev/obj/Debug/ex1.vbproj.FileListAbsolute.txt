@@ -1,0 +1,62 @@
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Interop.MBAXPLib.dll
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\AxInterop.MBAXPLib.dll
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\ex1.vbproj.ResolveComReference.cache
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Interop.MBAXPLib.dll
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\AxInterop.MBAXPLib.dll
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Project1.Form1.resources
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\ex1.vbproj.GenerateResource.Cache
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Project1.Resources.resources
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Erable1.exe.manifest
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Erable1.application
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Erable1.exe
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Erable1.pdb
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\Erable1.xml
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.TrustInfo.xml
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.exe.manifest
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.application
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.exe
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.xml
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\obj\Debug\Erable1.pdb
+C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\bin\SymbolFactoryDotNet.dll
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Interop.MBAXPLib.dll
+C:\ProjVB-Erabliere\VBNET\obj\Debug\AxInterop.MBAXPLib.dll
+C:\ProjVB-Erabliere\VBNET\obj\Debug\ex1.vbproj.ResolveComReference.cache
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.exe
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.xml
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.pdb
+C:\ProjVB-Erabliere\VBNET\bin\Erable1.exe.manifest
+C:\ProjVB-Erabliere\VBNET\bin\Erable1.application
+C:\ProjVB-Erabliere\VBNET\bin\Erable1.exe
+C:\ProjVB-Erabliere\VBNET\bin\Erable1.pdb
+C:\ProjVB-Erabliere\VBNET\bin\Erable1.xml
+C:\ProjVB-Erabliere\VBNET\bin\Interop.MBAXPLib.dll
+C:\ProjVB-Erabliere\VBNET\bin\AxInterop.MBAXPLib.dll
+C:\ProjVB-Erabliere\VBNET\obj\Debug\ResolveAssemblyReference.cache
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Project1.Form1.resources
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Project1.Resources.resources
+C:\ProjVB-Erabliere\VBNET\obj\Debug\ex1.vbproj.GenerateResource.Cache
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.TrustInfo.xml
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.exe.manifest
+C:\ProjVB-Erabliere\VBNET\obj\Debug\Erable1.application
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Interop.MBAXPLib.dll
+C:\ProjVB_Erabliere\VBNET\obj\Debug\AxInterop.MBAXPLib.dll
+C:\ProjVB_Erabliere\VBNET\obj\Debug\ex1.vbproj.ResolveComReference.cache
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.exe
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.xml
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.pdb
+C:\ProjVB_Erabliere\VBNET\bin\Erable1.exe.manifest
+C:\ProjVB_Erabliere\VBNET\bin\Erable1.application
+C:\ProjVB_Erabliere\VBNET\bin\Erable1.exe
+C:\ProjVB_Erabliere\VBNET\bin\Erable1.pdb
+C:\ProjVB_Erabliere\VBNET\bin\Erable1.xml
+C:\ProjVB_Erabliere\VBNET\bin\Interop.MBAXPLib.dll
+C:\ProjVB_Erabliere\VBNET\bin\AxInterop.MBAXPLib.dll
+C:\ProjVB_Erabliere\VBNET\obj\Debug\ResolveAssemblyReference.cache
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Project1.Form1.resources
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Project1.Resources.resources
+C:\ProjVB_Erabliere\VBNET\obj\Debug\ex1.vbproj.GenerateResource.Cache
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.TrustInfo.xml
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.exe.manifest
+C:\ProjVB_Erabliere\VBNET\obj\Debug\Erable1.application
+C:\ProjVB_Erabliere\VBNET\bin\SymbolFactoryDotNet.dll

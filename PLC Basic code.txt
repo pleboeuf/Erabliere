@@ -1,0 +1,390 @@
+'
+'
+' Initialisation de la connection au PLC. PLC_Shefford est une instance du driver Modbus
+'
+'
+    Private Sub Connect_PLC_Shefford()
+        Dim IPAddrPart() As String
+
+        'Paramètre Connection TCP/IP
+        If Not (TestMode) Then
+            IPAddrPart = My.Settings.PLC_IP_Shefford.Split(".")
+        Else
+            IPAddrPart = "127.0.0.1".Split(".")
+        End If
+        PLC_Shefford.Connection() = MBAXPLib.enumConnection.TCP_IP
+        PLC_Shefford.IPAddr1() = IPAddrPart(0)
+        PLC_Shefford.IPAddr2() = IPAddrPart(1)
+        PLC_Shefford.IPAddr3() = IPAddrPart(2)
+        PLC_Shefford.IPAddr4() = IPAddrPart(3)
+        PLC_Shefford.ConnectTimeout() = My.Settings.DelaisMaxConnection  'ms
+
+        'Établissement de la communication TCP/IP
+        e = PLC_Shefford.OpenConnection()
+
+        'Commande de lecture MODBUS
+        e = PLC_Shefford.ReadHoldingRegisters(1, 1, 3000, 20, 700) ' handle 1, slave 1, adresse 43001, quantite 20, rafraichissement 700mS
+        e = PLC_Shefford.ReadHoldingRegisters(2, 1, 999, 1, 1000) ' handle 2, slave 1, adresse 41000, quantite 1, rafr. 1000mS
+        e = PLC_Shefford.ReadCoilStatus(5, 1, 992, 30, 200) ' handle 5, slave 1, adresse 00993, quantite 30, rafraichissement 700mS
+        e = PLC_Shefford.ForceMultipleCoils(6, 1, 34, 4, 700) ' D-OUT handle 6, slave 1, adresse 00035, quantite 4, rafr. 700mS
+        e = PLC_Shefford.ReadCoilStatus(7, 1, 499, 2, 700) ' D-IN SONNORE handle 7, slave 1, adresse 00500, quantite 2, rafr. 700mS
+
+        'Debute les taches
+        PLC_Shefford.UpdateEnable(1)
+        PLC_Shefford.UpdateEnable(2)
+        PLC_Shefford.UpdateEnable(5)
+        PLC_Shefford.UpdateEnable(6)
+        PLC_Shefford.UpdateEnable(7)
+        'Démarre le watchDog
+        SheffordTimerWatchDog.Interval = My.Settings.DelaisWatchDog
+        SheffordTimerWatchDog.Enabled = True
+        '
+        SetBackgroundColor_Shefford(CouleurFondOriginaleShefford)
+        GrpConnectShefford.Text = "PLC Shefford IP: " & My.Settings.PLC_IP_Shefford
+        TxtMessages.Text = ""
+        TxtMessages.BackColor = Color.White
+    End Sub
+
+
+'
+'
+' Initialisation de la connection au PLC. PLC_Laporte est une instance du driver Modbus
+'
+'
+   Private Sub Connect_PLC_Laporte2()
+        Dim IPAddrPart() As String
+
+        'Paramètre Connection TCP/IP
+        If Not (TestMode) Then
+            IPAddrPart = My.Settings.PLC_IP_Laporte.Split(".")
+        Else
+            IPAddrPart = "127.0.0.1".Split(".")
+        End If
+        PLC_Laporte2.Connection() = MBAXPLib.enumConnection.TCP_IP
+        PLC_Laporte2.IPAddr1() = IPAddrPart(0)
+        PLC_Laporte2.IPAddr2() = IPAddrPart(1)
+        PLC_Laporte2.IPAddr3() = IPAddrPart(2)
+        PLC_Laporte2.IPAddr4() = IPAddrPart(3)
+        PLC_Laporte2.ConnectTimeout() = My.Settings.DelaisMaxConnection  'ms
+
+        'Établissement de la communication TCP/IP
+        e = PLC_Laporte2.OpenConnection()
+
+        'Commande de lecture MODBUS
+        e = PLC_Laporte2.ReadHoldingRegisters(1, 1, 1000, 20, 700) ' handle 1, slave 1, adresse 43001, quantite 20, rafraichissement 700mS
+        e = PLC_Laporte2.ReadHoldingRegisters(2, 1, 999, 1, 1000) ' handle 2, slave 1, adresse 41000, quantite 1, rafr. 1000mS
+        e = PLC_Laporte2.ReadCoilStatus(5, 1, 0, 49, 200) ' handle 5, slave 1, adresse 00993, quantite 30, rafraichissement 700mS
+        e = PLC_Laporte2.ForceMultipleCoils(6, 1, 34, 4, 700) ' D-OUT handle 6, slave 1, adresse 00035, quantite 4, rafr. 700mS
+        e = PLC_Laporte2.ReadCoilStatus(7, 1, 499, 2, 700) ' D-IN SONNORE handle 7, slave 1, adresse 00500, quantite 2, rafr. 700mS
+
+        'Debute les taches
+        PLC_Laporte2.UpdateEnable(1)
+        PLC_Laporte2.UpdateEnable(2)
+        PLC_Laporte2.UpdateEnable(5)
+        PLC_Laporte2.UpdateEnable(6)
+        PLC_Laporte2.UpdateEnable(7)
+        'Démarre le watchDog
+        LaporteTimerWatchDog.Interval = My.Settings.DelaisWatchDog
+        LaporteTimerWatchDog.Enabled = True
+        '
+        SetBackgroundColor_Laporte(CouleurFondOriginaleLaporte)
+        GrpConnectLaporte.Text = "PLC Laporte IP: " & My.Settings.PLC_IP_Laporte
+        TxtMessages.Text = ""
+        TxtMessages.BackColor = Color.White
+    End Sub
+
+
+'
+'
+' Verification de la connection ethernet PLC_Shefford
+'
+'
+    Private Sub PLC_Shefford_ResultError(ByVal sender As System.Object, ByVal e As AxMBAXPLib._DMbaxpEvents_ResultErrorEvent) Handles PLC_Shefford.ResultError
+        'TACHE DE LA RECEPTION DES VALEURS DIGITALES DES ETATS
+        If e.handle = 5 Then
+            If e.error = 10 Then
+                TxtMessages.Text = "PLC Shefford - Timeout, Vérifier le câble réseau." 'Voir dans la liste de code d erreur 10=Timeout
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 14 Then
+                TxtMessages.Text = "PLC Shefford - Erreur d'écriture"
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 15 Then
+                TxtMessages.Text = "PLC Shefford - Erreur de lecture"
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 0 Then
+                TxtMessages.Text = "" 'Efface le message
+                TxtMessages.BackColor = Color.White
+            Else
+                TxtMessages.Text = "PLC Shefford - Erreur # " & e.error.ToString
+                TxtMessages.BackColor = Color.OrangeRed
+            End If
+            'If e.error <> 0 Then
+            '    TxtMessages.Text = TxtMessages.Text & ". Code d'erreur: " & e.error.ToString
+            'End If
+        End If
+    End Sub 	
+
+
+'
+'
+' Verification de la connection ethernet PLC_Laporte2
+'
+'
+    Private Sub PLC_Laporte2_ResultError(ByVal sender As System.Object, ByVal e As AxMBAXPLib._DMbaxpEvents_ResultErrorEvent) Handles PLC_Laporte2.ResultError
+        'TACHE DE LA RECEPTION DES VALEURS DIGITALES DES ETATS
+        If e.handle = 5 Then
+            If e.error = 10 Then
+                TxtMessages.Text = "PLC Laporte - Timeout, Vérifier le réseau." 'Voir dans la liste de code d erreur 10=Timeout
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 14 Then
+                TxtMessages.Text = "PLC Laporte - Erreur d'écriture"
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 15 Then
+                TxtMessages.Text = "PLC Laporte - Erreur de lecture"
+                TxtMessages.BackColor = Color.OrangeRed
+            ElseIf e.error = 0 Then
+                TxtMessages.Text = "" 'Efface le message
+                TxtMessages.BackColor = Color.White
+            Else
+                TxtMessages.Text = "PLC Laporte - Erreur # " & e.error.ToString
+                TxtMessages.BackColor = Color.OrangeRed
+            End If
+            'If e.error <> 0 Then
+            '    TxtMessages.Text = TxtMessages.Text & ". Code d'erreur: " & e.error.ToString
+            'End If
+
+        End If
+    End Sub 	
+
+'
+'
+' Lecture des resultats du PLC_Shefford et mise a jour de l'affichage
+'
+'
+    Private Sub PLC_Shefford_ResultOk(ByVal sender As System.Object, ByVal e As AxMBAXPLib._DMbaxpEvents_ResultOkEvent) Handles PLC_Shefford.ResultOk
+        Dim JrVac1 As Short, JrVac2 As Short
+        Dim HrVac1 As Short, HrVac2 As Short, HrOsm1 As Short
+        Dim MinVac1 As Short, MinVac2 As Short, MinOsm1 As Short
+        Dim SecVac1 As Short, SecVac2 As Short, SecOsm1 As Short
+
+        'Réinitialiser le watchDog Timer
+        SetBackgroundColor_Shefford(CouleurFondOriginaleShefford)
+        SheffordTimerWatchDog.Enabled = False
+        SheffordTimerWatchDog.Interval = My.Settings.DelaisWatchDog
+        SheffordTimerWatchDog.Enabled = True
+
+        'TACHE DE LA RECEPTION DES VALEURS ANALOGUES
+        If e.handle = 1 Then
+            Lbl_deb_pump1.Text = CStr(2.0 * PLC_Shefford.get_Register(1, 0)) 'Affiche le dŽbit moyen (30 min) de la Pompe d'amenee#1 C'est l'eau aspiree de la cabane #1 (principale)rue Shefford - 43001
+            Lbl_deb_pump2.Text = CStr(2.0 * PLC_Shefford.get_Register(1, 1)) 'Affiche le dŽbit moyen (30 min) de la Pompe d'amenee#2 C'est l'eau aspiree de la cabane #2 (petite) rue Shefford - 43002
+            LblDureMarchePompeAmeneP1.Text = CStr(PLC_Shefford.get_Register(1, 2)) 'Affiche la durée de marche (sec) Pompe d'amenee#1 - 43003
+            LblDureMarchePompeAmeneP2.Text = CStr(PLC_Shefford.get_Register(1, 3)) 'Affiche la durée de marche (sec) Pompe d'amenee#2 - 43004
+
+            'Affichage Temps total d'opération du vacuum #1
+            JrVac1 = PLC_Shefford.get_Register(1, 10) 'jour de marche vacuum 1
+            HrVac1 = PLC_Shefford.get_Register(1, 9) 'heure de marche vacuum 1
+            MinVac1 = PLC_Shefford.get_Register(1, 8) 'minutes de marche vacuum 1
+            SecVac1 = PLC_Shefford.get_Register(1, 7) 'secondes de marche vacuum 1
+            LblHeureMarcheVac1.Text = String.Format("{0:D} j {1:D2} : {2:D2} : {3:D2}", JrVac1, HrVac1, MinVac1, SecVac1)
+
+            'Affichage Temps total d'opération du vacuum #2
+            JrVac2 = PLC_Shefford.get_Register(1, 14) 'jour de marche vacuum 2
+            HrVac2 = PLC_Shefford.get_Register(1, 13) 'heure de marche vacuum 2
+            MinVac2 = PLC_Shefford.get_Register(1, 12) 'minutes de marche vacuum 2
+            SecVac2 = PLC_Shefford.get_Register(1, 11) 'secondes de marche vacuum 2
+            LblHeureMarcheVac2.Text = String.Format("{0:D} j {1:D2} : {2:D2} : {3:D2}", JrVac2, HrVac2, MinVac2, SecVac2)
+
+            'Affichage Temps total d'opération du système Osmose#1
+            HrOsm1 = PLC_Shefford.get_Register(1, 6) 'heure de marche vacuum
+            MinOsm1 = PLC_Shefford.get_Register(1, 5) 'minutes de marche vacuum
+            SecOsm1 = PLC_Shefford.get_Register(1, 4) 'secondes de marche vacuum
+            LblHeureMarcheOsm1.Text = String.Format("{0:D2} : {1:D2} : {2:D2}", HrOsm1, MinOsm1, SecOsm1)
+        End If
+
+        'TACHE DE LA RECEPTION DES VALEURS DIGITALES DES ETATS
+        If e.handle = 5 Then
+            'Lecture de l'etat des systemes
+            Dim Pompe1_ON_OFF_State As Boolean = PLC_Shefford.get_Coil(5, 1)    'Etat ON/OFF     Pompe#1-00994  Coil 993 + 1
+            Dim Pompe1_Fault_State As Boolean = PLC_Shefford.get_Coil(5, 2)     'Etat Faute      Pompe#1-00995  Coil 993 + 2
+            Dim Pompe2_ON_OFF_State As Boolean = PLC_Shefford.get_Coil(5, 4)    'Etat ON/OFF     Pompe#2-00997  Coil 993 + 4
+            Dim Pompe2_Fault_State As Boolean = PLC_Shefford.get_Coil(5, 5)     'Etat Faute      Pompe#2-00998  Coil 993 + 5
+            Dim Vacc1_ON_OFF_State As Boolean = PLC_Shefford.get_Coil(5, 7)     'Etat ON/OFF     Vacuum#1-01000 Coil 993 + 7
+            Dim Vacc2_ON_OFF_State As Boolean = PLC_Shefford.get_Coil(5, 9)     'Etat ON/OFF     Vacuum#2-01002 Coil 993 + 9
+            Dim Osm_green = PLC_Shefford.get_Coil(5, 10) 'Affiche l'etat VERT temps de marche    Osmose#1-01003 Coil 993 + 10
+            Dim Osm_yellow = PLC_Shefford.get_Coil(5, 11) 'Affiche l'etat JAUNE temps de marche  Osmose#1-01004 Coil 993 + 11
+            Dim Osm_red = PLC_Shefford.get_Coil(5, 12) 'Affiche l'etat ROUGE temps de marche     Osmose#1-01005 Coil 993 + 12
+            Dim Osm1_On_OFF_State As Boolean = PLC_Shefford.get_Coil(5, 13)      'Etat ON/OFF     Osmose#1-01006 Coil 993 + 13
+
+            'Affichage de l'état des pompes
+            Std_Ctrl_pump1.DiscreteValue1 = Not (Pompe1_ON_OFF_State)
+            Std_Ctrl_pump1.DiscreteValue2 = Pompe1_ON_OFF_State
+            Std_Ctrl_pump1.DiscreteValue3 = Pompe1_Fault_State
+            Lbl_faute_pump1.Visible = Pompe1_Fault_State
+
+            Std_Ctrl_pump2.DiscreteValue1 = Not (Pompe2_ON_OFF_State)
+            Std_Ctrl_pump2.DiscreteValue2 = Pompe2_ON_OFF_State
+            Std_Ctrl_pump2.DiscreteValue3 = Pompe2_Fault_State
+            Lbl_faute_pump2.Visible = Pompe2_Fault_State
+
+            'Affichage de l'état des pompes
+            Lbl_arr_vacc1.Visible = Not (Vacc1_ON_OFF_State)
+            Lbl_mar_vacc1.Visible = Vacc1_ON_OFF_State
+            StandardControlVac1.DiscreteValue1 = Not (Vacc1_ON_OFF_State)
+            StandardControlVac1.DiscreteValue2 = Vacc1_ON_OFF_State
+
+            Lbl_arr_vacc2.Visible = Not (Vacc2_ON_OFF_State)
+            Lbl_mar_vacc2.Visible = Vacc2_ON_OFF_State
+            StandardControlVac2.DiscreteValue1 = Not (Vacc2_ON_OFF_State)
+            StandardControlVac2.DiscreteValue2 = Vacc2_ON_OFF_State
+
+            'Affichage de l'état de l'Osmose
+            Std_ctrl_osm1.DiscreteValue1 = Osm_green
+            Std_ctrl_osm1.DiscreteValue2 = Osm_yellow
+            Std_ctrl_osm1.DiscreteValue3 = Osm_red
+            If Osm_green Then
+                LblHeureMarcheOsm1.BackColor = Color.LightGreen
+            ElseIf Osm_yellow Then
+                LblHeureMarcheOsm1.BackColor = Color.Yellow
+            ElseIf Osm_red Then
+                LblHeureMarcheOsm1.BackColor = Color.Red
+            End If
+
+            If Osm1_On_OFF_State Then
+                Lbl_Osm1_On_Off.Text = "ON"
+                Panel_Osm1_On_Off.BackColor = Color.Green
+            Else
+                Lbl_Osm1_On_Off.Text = "OFF"
+                Panel_Osm1_On_Off.BackColor = CouleurFondOriginaleShefford
+            End If
+
+            ' Change la couleur du champ de message en cas d'alarme
+            If PLC_Shefford.get_Coil(7, 1) = 1 Then
+                TxtBox_mess_alm.BackColor() = Color.OrangeRed
+            Else
+                TxtBox_mess_alm.BackColor() = Color.WhiteSmoke
+            End If
+
+            'Gestion de l'état des pompes et acquisition de données
+            AcquisitionEtatDePompe(PompeP1, Pompe1_ON_OFF_State)
+            AcquisitionEtatDePompe(PompeP2, Pompe2_ON_OFF_State)
+
+        End If
+
+        If e.handle = 6 Then 'RAZ le bouton de rearmement
+            BitDeRearmement = 0 ' Met OFF le bit de rearmement
+            PLC_Shefford.set_Coil(6, 0, BitDeRearmement)
+            PLC_Shefford.UpdateOnce(0)
+            Cmd_rearm_alm.BackColor = Color.Blue
+        End If
+
+        'TACHE DE LA RECEPTION DES VALEURS DIGITALES DES ALARMES
+        If e.handle = 2 Then ' Gestion des messages d alarme
+            Dim AlarmStatus As Int16 = PLC_Shefford.get_Register(2, 0)
+
+            If AlarmStatus = -32768 Then SheffordAlarmMsg = "Osmose en marche au-delà de 4 heures" ' Bit 1-41000
+            If AlarmStatus = 16384 Then SheffordAlarmMsg = "Pompe #1 fonctionne depuis 5 min. à vérifier" ' Bit 2-41000
+            If AlarmStatus = 8192 Then SheffordAlarmMsg = "Pompe #2 fonctionne depuis 5 min. à vérifier" ' Bit 3-41000
+            If AlarmStatus = 4096 Then SheffordAlarmMsg = "Bit de test 4" ' Bit 4-41000
+            If AlarmStatus = 2048 Then SheffordAlarmMsg = "Bit de test 5" ' Bit 5-41000
+            If AlarmStatus = 1024 Then SheffordAlarmMsg = "Bit de test 6" ' Bit 6-41000
+            If AlarmStatus = 512 Then SheffordAlarmMsg = "Bit de test 7" ' Bit 7-41000
+            If AlarmStatus = 256 Then SheffordAlarmMsg = "Bit de test 8" ' Bit 8-41000
+            If AlarmStatus = 128 Then SheffordAlarmMsg = "Bit de test 9" ' Bit 9-41000
+            If AlarmStatus = 64 Then SheffordAlarmMsg = "Bit de test 10" ' Bit 10-41000
+            If AlarmStatus = 32 Then SheffordAlarmMsg = "Bit de test 11" ' Bit 11-41000
+            If AlarmStatus = 16 Then SheffordAlarmMsg = "Bit de test 12" ' Bit 12-41000
+            If AlarmStatus = 8 Then SheffordAlarmMsg = "Bit de test 13" ' Bit 13-41000
+            If AlarmStatus = 4 Then SheffordAlarmMsg = "Bit de test 14" ' Bit 14-41000
+            If AlarmStatus = 2 Then SheffordAlarmMsg = "Bit de test 15" ' Bit 15-41000
+            If AlarmStatus = 1 Then SheffordAlarmMsg = "Bit de test 16" ' Bit 16-41000
+            If AlarmStatus = 0 Then SheffordAlarmMsg = "" 'Operation normale"
+        End If
+        'Affichage des messages d'alarmes
+        DisplayAlarmMsg(SheffordAlarmMsg, LaporteAlarmMessage)
+    End Sub
+
+'
+'
+' Lecture des resultats du PLC_Laporte2 et mise a jour de l'affichage
+'
+'
+   Private Sub PLC_Laporte2_ResultOk(ByVal sender As System.Object, ByVal e As AxMBAXPLib._DMbaxpEvents_ResultOkEvent) Handles PLC_Laporte2.ResultOk
+        Dim JrVac3 As Short
+        Dim HrVac3 As Short
+        Dim MinVac3 As Short
+        Dim SecVac3 As Short
+
+        'Réinitialiser le watchDog Timer
+        'SetBackgroundColor_Laporte(CouleurFondOriginaleShefford)
+        LaporteTimerWatchDog.Enabled = False
+        LaporteTimerWatchDog.Interval = My.Settings.DelaisWatchDog
+        LaporteTimerWatchDog.Enabled = True
+
+        If e.handle = 1 Then
+            Lbl_deb_pump3.Text = CStr(PLC_Laporte2.get_Register(1, 2)) '(41003)Affiche le DEBIT Pompe d'amenee#3 C'est l'eau aspiree de la cabane #3 boul. Pierre-Laporte
+            LblDureMarchePompeAmeneP3.Text = CStr(PLC_Laporte2.get_Register(1, 4)) '(41005)Affiche la DUREE marche Pompe d'amenee#3  C'est l'eau aspiree de la cabane #3 boul. Pierre-Laporte
+        End If
+
+        If e.handle = 5 Then
+            'Lecture de l'etat des systemes
+            Dim Pompe3_ON_OFF_State As Boolean = PLC_Laporte2.get_Coil(5, 20)   'Etat ON/OFF     Pompe#3-00020   Coil 16 + 4
+            Dim Pompe3_Fault_State As Boolean = PLC_Laporte2.get_Coil(5, 21)    'Etat Faute      Pompe#3-00021   Coil 16 + 5
+            Dim Vacc3_ON_OFF_State As Boolean = PLC_Laporte2.get_Coil(5, 28)    'Etat ON/OFF     Vacuum#3-00028  Coil 16 + 12
+
+            'Affichage de l'état de la pompe
+            Std_Ctrl_pump3.DiscreteValue1 = Not (Pompe3_ON_OFF_State)
+            Std_Ctrl_pump3.DiscreteValue2 = Pompe3_ON_OFF_State
+            Std_Ctrl_pump3.DiscreteValue3 = Pompe3_Fault_State
+            Lbl_faute_pump3.Visible = Pompe3_Fault_State
+
+            'Affichage Temps total d'opération du vacuum #3
+            JrVac3 = PLC_Laporte2.get_Register(1, 8) 'jour de marche vacuum 1
+            HrVac3 = PLC_Laporte2.get_Register(1, 7) 'heure de marche vacuum 1
+            MinVac3 = PLC_Laporte2.get_Register(1, 6) 'minutes de marche vacuum 1
+            SecVac3 = PLC_Laporte2.get_Register(1, 5) 'secondes de marche vacuum 1
+            LblHeureMarcheVac3.Text = String.Format("{0:D} j {1:D2} : {2:D2} : {3:D2}", JrVac3, HrVac3, MinVac3, SecVac3)
+
+            'Affichage de l'état du vacuum
+            Lbl_arr_vacc3.Visible = Not (Vacc3_ON_OFF_State) 'Affiche l'etat Arret       Vacuum#1-00999
+            Lbl_mar_vacc3.Visible = Vacc3_ON_OFF_State 'Affiche l'etat Marche      Vacuum#1-01000
+            StandardControlVac3.DiscreteValue1 = Not (Vacc3_ON_OFF_State)
+            StandardControlVac3.DiscreteValue2 = Vacc3_ON_OFF_State
+
+            'Affichage de la temperature
+            Dim TempBit1 As Boolean = PLC_Laporte2.get_Coil(5, 22) 'Temerature bit 1 - 00022   Coil 16 + 6
+            Dim TempBit2 As Boolean = PLC_Laporte2.get_Coil(5, 23) 'Temerature bit 1 - 00023   Coil 16 + 7
+            Dim TempBit3 As Boolean = PLC_Laporte2.get_Coil(5, 24) 'Temerature bit 1 - 00024   Coil 16 + 8
+            Dim TempBit4 As Boolean = PLC_Laporte2.get_Coil(5, 25) 'Temerature bit 1 - 00025   Coil 16 + 9
+            Dim TempBit5 As Boolean = PLC_Laporte2.get_Coil(5, 26) 'Temerature bit 1 - 00026   Coil 16 + 10
+
+            If TempBit5 Then
+                LblTemperature.Text = "> 4 deg C"
+                LblTemperature.BackColor = Color.Gold
+            ElseIf TempBit4 Then
+                LblTemperature.Text = "> 2 deg C"
+                LblTemperature.BackColor = Color.Yellow
+            ElseIf TempBit3 Then
+                LblTemperature.Text = "> 0 deg C"
+                LblTemperature.BackColor = Color.Lime
+            ElseIf TempBit2 Then
+                LblTemperature.Text = "> -2 deg C"
+                LblTemperature.BackColor = Color.Aquamarine
+            ElseIf TempBit1 Then
+                LblTemperature.Text = "< -2 deg C"
+                LblTemperature.BackColor = Color.LightSkyBlue
+            Else
+                LblTemperature.Text = "-----------"
+                LblTemperature.BackColor = Color.Black
+            End If
+
+            'Gestion de l'état des pompes et acquisition de données
+            AcquisitionEtatDePompe(PompeP3, Pompe3_ON_OFF_State)
+
+        End If
+
+        If e.handle = 6 Then 'RAZ le bouton de rearmement
+            BitDeRearmement = 0  'Met OFF le bit de rearmement
+            PLC_Laporte2.set_Coil(6, 0, BitDeRearmement) '(00035)Bit de rearmement mis a 0
+            PLC_Laporte2.UpdateOnce(0)
+        End If
+    End Sub

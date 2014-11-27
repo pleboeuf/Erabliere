@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ex1">
+</Property><Property Name="Solution File" Value="C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\ex1.sln">
+</Property><Property Name="Date" Value="24 octobre 2010">
+</Property><Property Name="Time" Value="10:20">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ex1.sln" Description="File successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\ex1.sln">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.vbproj" Description="Project file successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\ex1.vbproj">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.vbproj.user" Description="Project user file successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\ex1.vbproj.user">
+</Event><Event ErrorLevel="0" Project="ex1" Source="AssemblyInfo.vb" Description="File successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.vb" Description="File successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\ex1.vb">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.resX" Description="File successfully backed up as C:\Program Files\Modbus Tools\MBAXP\Examples\VBNET\Backup\ex1.resX">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ex1" Source="ex1.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ex1.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="ex1.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ex1" Source="ex1.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

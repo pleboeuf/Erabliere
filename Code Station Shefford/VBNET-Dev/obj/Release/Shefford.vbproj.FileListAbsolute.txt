@@ -1,0 +1,41 @@
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\ErabliereBrunelle.exe.config
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\Interop.MBAXPLib.dll
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\AxInterop.MBAXPLib.dll
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\Shefford.vbproj.ResolveComReference.cache
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\ErabliereBrunelle.exe.manifest
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\ErabliereBrunelle.application
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\ErabliereBrunelle.exe
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\ErabliereBrunelle.xml
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\SymbolFactoryDotNet.dll
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\Interop.MBAXPLib.dll
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\bin\Release\AxInterop.MBAXPLib.dll
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.Form1.resources
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.Resources.resources
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.TrustInfo.xml
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.exe.manifest
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.application
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.exe
+C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\obj\Release\ErabliereBrunelle.xml
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\ErabliereBrunelle.exe.config
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\Interop.MBAXPLib.dll
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\AxInterop.MBAXPLib.dll
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\Shefford.vbproj.ResolveComReference.cache
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.exe
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.xml
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\ErabliereBrunelle.exe.manifest
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\ErabliereBrunelle.application
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\ErabliereBrunelle.exe
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\ErabliereBrunelle.xml
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\Interop.MBAXPLib.dll
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\bin\Release\AxInterop.MBAXPLib.dll
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.Form1.resources
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.Resources.resources
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.TrustInfo.xml
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.exe.manifest
+C:\Documents and Settings\Pierre\My Documents\Visual Studio 2010\Projects\Shefford en développement\VB\VBNET-Dev\obj\Release\ErabliereBrunelle.application

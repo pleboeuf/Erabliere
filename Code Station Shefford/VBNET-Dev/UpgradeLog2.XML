@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ex1">
+</Property><Property Name="Fichier solution" Value="C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\ex1.sln">
+</Property><Property Name="Fichier d'options utilisateur" Value="C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\ex1.suo">
+</Property><Property Name="Date" Value="February 5, 2012">
+</Property><Property Name="Time" Value="13:48 PM">
+</Property><Property Name="Numéro de journal" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ex1.sln" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\ex1.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ex1.suo" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\ex1.suo">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.vbproj" Description="Fichier projet correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\Shefford.vbproj">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.vbproj.user" Description="Fichier utilisateur de projet correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\Shefford.vbproj.user">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="AssemblyInfo.vb" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.vb" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\Shefford.vb">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="My Project\Application.Designer.vb" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="My Project\Resources.Designer.vb" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="ex1_TemporaryKey.pfx" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\ex1_TemporaryKey.pfx">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="My Project\app.manifest" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\My Project\app.manifest">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="My Project\Application.myapp" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Resources\osmose30004000.jpg" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\Resources\osmose30004000.jpg">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="ding.wav" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\ding.wav">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="sound3.wav" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\sound3.wav">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.resX" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\Shefford.resX">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="My Project\Resources.resx" Description="Fichier correctement sauvegardé en tant que C:\Documents and Settings\Erabliere\My Documents\Visual Studio 2010\Projects\VBNET\Backup1\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.vbproj" Description="Projet correctement converti">
+</Event><Event ErrorLevel="3" Project="Shefford" Source="Shefford.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ex1.sln" Description="Solution correctement convertie">
+</Event><Event ErrorLevel="3" Project="" Source="ex1.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Shefford" Source="Shefford.vbproj" Description="Analyse terminée : la mise à niveau n'est pas requise pour les fichiers projet.">
+</Event></UpgradeLog>
